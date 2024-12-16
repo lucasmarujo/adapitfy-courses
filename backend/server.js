@@ -3,14 +3,13 @@ const { Stripe } = require('stripe');
 const bodyParser = require('body-parser');
 
 const app = express();
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY); // Usar variável de ambiente
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 app.use(bodyParser.json());
 
 app.post('/api/checkout', async (req, res) => {
   const { priceId } = req.body;
 
-  // Validação do priceId
   if (!priceId) {
     return res.status(400).send({ error: 'priceId é obrigatório' });
   }
@@ -20,13 +19,13 @@ app.post('/api/checkout', async (req, res) => {
       payment_method_types: ['card'],
       line_items: [
         {
-          price: priceId, // ID do preço que você criou no Stripe
+          price: priceId,
           quantity: 1,
         },
       ],
       mode: 'payment',
-      success_url: 'http://localhost:3000/success', // URL de sucesso
-      cancel_url: 'http://localhost:3000/cancel', // URL de cancelamento
+      success_url: 'http://localhost:3000/success',
+      cancel_url: 'http://localhost:3000/cancel',
     });
 
     res.json({ url: session.url });
