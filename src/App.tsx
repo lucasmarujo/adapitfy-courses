@@ -38,11 +38,8 @@ function App() {
   ];
 
   const checkoutData = {
-    // Defina os dados necessários para o checkout aqui
-    // Exemplo:
     item: 'Curso Adapitfy',
-    price: 29.90,
-    // ... outros dados conforme necessário ...
+    priceId: 'preco_id_aqui',
   };
 
   return (
@@ -113,17 +110,17 @@ function App() {
                 ))}
               </div>
               <button
-                  onClick={() => {
-                      try {
-                          handleCheckout(checkoutData);
-                          window.location.href = "https://buy.stripe.com/aEUeX59mL1L2evSbIK";
-                      } catch (error) {
-                          console.error("Erro no checkout:", error);
-                      }
-                  }}
-                  className="w-full bg-[#00defc] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#00c5e0] transition-colors"
+                onClick={async () => {
+                  try {
+                    await handleCheckout(checkoutData);
+                    window.location.href = "https://buy.stripe.com/aEUeX59mL1L2evSbIK";
+                  } catch (error) {
+                    console.error("Erro no checkout:", error);
+                  }
+                }}
+                className="w-full bg-[#00defc] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#00c5e0] transition-colors"
               >
-                  Começar Agora
+                Começar Agora
               </button>
             </div>
           </div>

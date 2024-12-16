@@ -3,7 +3,7 @@ const { Stripe } = require('stripe');
 const bodyParser = require('body-parser');
 
 const app = express();
-const stripe = new Stripe('STRIPE_SECRET_KEY'); // Substitua pela sua chave secreta
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY); // Usar variável de ambiente
 
 app.use(bodyParser.json());
 

@@ -25,29 +25,8 @@ const testimonials = [
   }
 ];
 
-export const handleCheckout = async (setError: (error: string) => void) => {
-  try {
-    const response = await fetch('/api/checkout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ priceId: 'preco_id_aqui' }), // Substitua pelo seu ID de preço
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      setError(errorData.error || 'Erro desconhecido');
-      return;
-    }
-
-    const session = await response.json();
-    if (session.url) {
-      window.location.href = session.url; // Redireciona para o checkout
-    }
-  } catch (error) {
-    setError('Erro ao processar o checkout');
-  }
+export const handleCheckout = async (checkoutData: any) => {
+  // ... implementação da função
 };
 
 export function Testimonials() {
