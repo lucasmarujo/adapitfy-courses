@@ -46,9 +46,9 @@ const webhookHandler = async (req, res) => {
         break;
       }
       case 'payment_intent.payment_failed': {
-        const paymentIntent = event.data.object;
+        const paymentIntentFailed = event.data.object;
         console.log(
-          `❌ Payment failed: ${paymentIntent.last_payment_error?.message}`
+          `❌ Payment failed: ${paymentIntentFailed.last_payment_error?.message}`
         );
         break;
       }

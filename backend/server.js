@@ -10,6 +10,9 @@ app.use(bodyParser.json());
 app.post('/api/checkout', async (req, res) => {
   const { priceId } = req.body;
 
+  const cors = require('cors');
+    app.use(cors());
+
   if (!priceId) {
     return res.status(400).send({ error: 'priceId é obrigatório' });
   }

@@ -7,10 +7,16 @@ import { Footer } from './components/Footer';
 import { handleCheckout } from './components/Testimonials';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark';
-  });
+  const [darkMode, setDarkMode] = useState(false);
+
+  const [data, setData] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const storedData = localStorage.getItem('key');
+      setData(storedData);
+    }
+  }, []);
 
   useEffect(() => {
     if (darkMode) {
@@ -38,8 +44,7 @@ function App() {
   ];
 
   const checkoutData = {
-    item: 'Curso Adapitfy',
-    priceId: 'preco_id_aqui',
+    priceId: 'price_1QNjpCRoR21jOPgb4VJAAwnq',
   };
 
   return (

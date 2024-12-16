@@ -25,12 +25,34 @@ const testimonials = [
   }
 ];
 
-export const handleCheckout = async (checkoutData: any) => {
-  // ... implementação da função
-};
+export async function handleCheckout(checkoutData: any) {
+  try {
+    const response = await fetch('/api/checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(checkoutData),
+    });
+
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(`Erro na requisição: ${response.statusText} - ${errorMessage}`);
+    }
+
+    const { url } = await response.json();
+    return url;
+  } catch (error) {
+    console.error("Erro no checkout:", error);
+    throw error;
+  }
+}
 
 export function Testimonials() {
   const [error, setError] = useState('');
+  const checkoutData = {
+    priceId: 'price_1QNjpCRoR21jOPgb4VJAAwnq', // Substitua pelo ID do preço que você criou no Stripe
+  };
 
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-900">
@@ -66,7 +88,17 @@ export function Testimonials() {
           ))}
         </div>
         <div className="text-center md:text-left mt-2">
-          <button onClick={() => handleCheckout(setError)} className="w-full bg-[#00defc] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#00c5e0] transition-colors">
+          <button
+            onClick={async () => {
+              try {
+                const url = await handleCheckout(checkoutData);
+                window.location.href = url;
+              } catch (error) {
+                alert("Houve um erro ao processar o checkout. Tente novamente.");
+              }
+            }}
+            className="w-full bg-[#00defc] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#00c5e0] transition-colors"
+          >
             Começar Agora
           </button>
         </div>
