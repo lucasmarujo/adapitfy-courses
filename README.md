@@ -31,7 +31,7 @@ Na Adapitfy Courses, oferecemos uma variedade de cursos online de alta qualidade
 
 Não perca mais tempo! Transforme sua vida e carreira hoje mesmo. Clique no link abaixo para acessar nossa plataforma e comece sua jornada de aprendizado:
 
-[**Acesse a Adapitfy Courses agora!**](https://buy.stripe.com/aEUeX59mL1L2evSbIK)
+[**Acesse a Adapitfy Courses agora!**](https://adapitfy-courses.vercel.app/)
 
 ---
 
