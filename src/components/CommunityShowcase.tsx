@@ -57,7 +57,7 @@ export function CommunityShowcase() {
                     <Smartphone className="w-12 h-12 text-[#00defc] mx-auto mb-4" />
                     <div className="flex justify-center">
                       <img 
-                        src='./public/images/screenshot.png' 
+                        src='/images/screenshot.png' 
                         alt='screenshot' 
                         className='w-full h-auto max-w-[600px] md:max-w-full object-contain rounded-2xl'
                       />
