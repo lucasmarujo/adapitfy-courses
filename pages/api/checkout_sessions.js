@@ -21,10 +21,10 @@ export default async function handler(req, res) {
         success_url: `${req.headers.origin}/?success=true`,
         cancel_url: `${req.headers.origin}/?canceled=true`,
       });
-      res.redirect(303, session.url);
+      res.status(303).redirect(session.url);
     } catch (err) {
       console.error('Erro ao criar a sessão de checkout:', err);
-      res.status(err.statusCode || 500).json(err.message);
+      res.status(err.statusCode || 500).json({ error: 'Erro ao criar a sessão de checkout' });
     }
   } else {
     res.setHeader('Allow', 'POST');
