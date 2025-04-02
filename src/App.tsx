@@ -4,7 +4,6 @@ import { Header } from './components/Header';
 import { CommunityShowcase } from './components/CommunityShowcase';
 import { Testimonials } from './components/Testimonials';
 import { Footer } from './components/Footer';
-import { handleCheckout } from './components/Testimonials';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -115,14 +114,7 @@ function App() {
                 ))}
               </div>
               <button
-                onClick={async () => {
-                  try {
-                    await handleCheckout(checkoutData);
-                    window.location.href = "https://buy.stripe.com/aEUeX59mL1L2evSbIK";
-                  } catch (error) {
-                    console.error("Erro no checkout:", error);
-                  }
-                }}
+                onClick={() => window.location.href = "https://pay.kiwify.com.br/lkjbC2H"}
                 className="w-full bg-[#00defc] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#00c5e0] transition-colors"
               >
                 Começar Agora

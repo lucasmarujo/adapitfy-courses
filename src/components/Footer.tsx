@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container mx-auto px-4 flex flex-col items-center gap-4">
         <div className="flex gap-4">
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/lucas.marujo/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 dark:text-gray-300 hover:text-[#00defc] transition-colors"
@@ -15,7 +15,7 @@ export function Footer() {
             <Instagram className="w-6 h-6" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/lucas-marujo-amadeu-5322a7219/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 dark:text-gray-300 hover:text-[#00defc] transition-colors"
